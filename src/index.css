@@ -61,17 +61,42 @@
         display: none;
       }
     }
+
+    margin-bottom: 10px;
+  }
+
+  &__alt {
+    &[contentEditable="true"][data-placeholder]::before {
+      position: absolute;
+      content: attr(data-placeholder);
+      color: #707684;
+      font-weight: normal;
+      display: none;
+    }
+
+    &[contentEditable="true"][data-placeholder]:empty {
+      &::before {
+        display: block;
+      }
+
+      &:focus::before {
+        display: none;
+      }
+    }
   }
 
   &--empty {
-    ^&__image {
+    ^ &__image {
       display: none;
     }
   }
 
   &--empty,
   &--loading {
-    ^&__caption {
+    ^ &__caption {
+      display: none;
+    }
+    ^ &__alt {
       display: none;
     }
   }
